@@ -659,7 +659,7 @@ const app = {
     // Leaving the quiz screen drops the two-sided Comprehension layout; leaving
     // the written screen drops its two-sided layout too
     if (id !== 'quiz-screen') this._applyCompLayout(false);
-    if (id !== 'written-screen') { document.body.classList.remove('written-active'); this._stopWrittenTimer(); }
+    if (id !== 'written-screen') { document.body.classList.remove('written-active'); this._stopWrittenTimer(); if (this._demo) this._demo.stop(); }
     window.scrollTo(0, 0);   // every new screen starts at the top
     window.speechSynthesis.cancel();
   },
@@ -1347,6 +1347,10 @@ const app = {
     document.getElementById('written-teacher-note').classList.toggle('hidden', !reviewMode);
     document.getElementById('written-directions').textContent = window.WRITTEN_DIRECTIONS || '';
     this._setupStoryPanel('written-story-imgs');
+
+    // ⭐ the worked example with narration (rad-demo.js), above the questions
+    const demoEl = document.getElementById('rad-demo');
+    if (demoEl && window.RadDemo) { if (this._demo) this._demo.stop(); this._demo = window.RadDemo.mount(demoEl); }
 
     const container = document.getElementById('written-prompts-container');
     container.innerHTML = '';

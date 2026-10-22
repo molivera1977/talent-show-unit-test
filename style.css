@@ -924,3 +924,28 @@ body.written-active .container { max-width: 1160px; }
 .rad-retype-label { font-weight: 800; font-size: 1.05rem; color: #6c3483; }
 .rad-retype-box { min-height: 120px; font-size: 1.05rem; margin-top: 6px; }
 .rad-retype-box.blank-missing { border-color: #c0392b; background: #fdecea; }
+
+/* ── ⭐ WORKED EXAMPLE above the written questions (rad-demo.js, Marcos 10/21) ── */
+.rad-demo { border: 3px solid #f1c40f; background: #fffdf2; border-radius: 14px; padding: 12px 14px; margin: 0 0 18px; }
+.rad-demo-head { display: flex; align-items: center; gap: 10px; margin-bottom: 6px; }
+.rad-demo-title { font-weight: 800; font-size: 1.15rem; color: #7a5b00; }
+.rad-demo-note { font-size: 0.95rem; color: #444; }
+.rad-demo-caption { display: none; font-size: 1.05rem; font-weight: 700; color: #1a3a6b; background: #fff; border: 2px solid #1a3a6b; border-radius: 10px; padding: 8px 12px; margin: 6px 0 10px; }
+.rad-demo-caption.on { display: block; }
+.rad-demo .demo-part { border-radius: 10px; padding: 6px 10px; margin: 6px 0; font-size: 1.02rem; line-height: 1.9; transition: box-shadow 0.2s, background 0.2s; }
+.rad-demo .demo-part.rad-step { border-left-width: 6px; }
+.rad-demo .demo-part.demo-focus { box-shadow: 0 0 0 4px #f1c40f; background: #fff8d6; }
+.rad-demo .demo-label { font-weight: 800; color: #555; }
+.rad-demo .demo-tag { font-size: 0.8rem; font-weight: 700; color: #6c3483; background: #f3e8ff; border-radius: 8px; padding: 1px 8px; margin-left: 4px; }
+.rad-demo .demo-line { font-size: 1.05rem; }
+.rad-demo .demo-given { font-weight: 700; color: #1a3a6b; }
+.rad-demo .demo-box { display: inline-block; min-width: 6ch; text-align: center; font-weight: 700; color: #1a3a6b; border: 2px solid #8e44ad; border-radius: 8px; background: #fbf7ff; padding: 0 8px; margin: 0 3px; line-height: 1.6; }
+.rad-demo .demo-w.demo-found { background: #ffe58a; border-radius: 4px; outline: 2px solid #f1c40f; }
+.rad-demo .demo-retype { background: #fff; border: 2px solid #ccc; border-radius: 8px; padding: 8px 10px; margin-top: 6px; font-size: 1rem; line-height: 1.6; }
+.rad-demo .demo-play { flex: none; width: auto; padding: 10px 18px; font-size: 1.05rem; margin: 0; }
+.rad-demo .demo-box:empty::before { content: '\00a0'; }
+.rad-demo .demo-typing { box-shadow: 0 0 0 3px #f1c40f; }
+.rad-demo .demo-typing::after { content: '|'; color: #8e44ad; font-weight: 400; animation: demo-blink 0.8s steps(1) infinite; }
+.rad-demo .demo-retype { min-height: 3.4em; }
+@keyframes demo-blink { 50% { opacity: 0; } }
+@media (prefers-reduced-motion: reduce) { .rad-demo .demo-typing::after { animation: none; } }
