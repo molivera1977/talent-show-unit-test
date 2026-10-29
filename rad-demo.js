@@ -106,7 +106,7 @@
       const finish = () => { if (!over && id === runId) { over = true; later(done, 250); } };
       if (!synth || !window.SpeechSynthesisUtterance) { later(finish, text.split(' ').length * 420); return; }
       const u = new SpeechSynthesisUtterance(text);
-      u.lang = 'en-US'; u.rate = 0.82;
+      english(u); u.rate = 0.82;
       u.onend = finish; u.onerror = finish;
       later(finish, text.split(' ').length * 650 + 2500);   // some devices never fire onend
       synth.speak(u);
